@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def camelVersion = "2.21.0"
+
+dependencies {
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-core'
+    //compile group: 'org.apache.camel', version: camelVersion, name: 'camel-spring'
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-http4'
+    
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-jms'
+    
+    compile 'org.apache.activemq:activemq-camel:5.15.3'
+    compile 'org.apache.activemq:activemq-broker:5.15.3'
+    compile 'org.apache.activemq:activemq-client:5.15.3'
+    compile 'org.apache.activemq:activemq-kahadb-store:5.15.3'
+    
+    
+    runtime 'org.apache.logging.log4j:log4j-api:2.11.0'
+    runtime 'org.apache.logging.log4j:log4j-core:2.11.0'
+    runtime 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.0'
+    
+    testCompile 'junit:junit:4.12'
+}
+
+mainClassName = 'my.test.Application'
