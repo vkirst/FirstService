@@ -11,12 +11,16 @@ targetCompatibility = 1.8
 def camelVersion = "2.21.0"
 
 dependencies {
-    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-core'
     //compile group: 'org.apache.camel', version: camelVersion, name: 'camel-spring'
-    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-http4'
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-core'
+
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-stream'
     
     compile group: 'org.apache.camel', version: camelVersion, name: 'camel-jms'
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-rabbitmq'
     
+    compile group: 'org.apache.camel', version: camelVersion, name: 'camel-http4'
+
     compile 'org.apache.activemq:activemq-camel:5.15.3'
     compile 'org.apache.activemq:activemq-broker:5.15.3'
     compile 'org.apache.activemq:activemq-client:5.15.3'
@@ -30,4 +34,3 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-mainClassName = 'my.test.Application'
