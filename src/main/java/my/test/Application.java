@@ -12,6 +12,7 @@ import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.ExchangeTimedOutException;
 
 public class Application {
 
@@ -26,7 +27,7 @@ public class Application {
 
             @Override
             public void configure() throws Exception {
-                onException(IOException.class)
+                onException(IOException.class, ExchangeTimedOutException.class)
                         .maximumRedeliveries(-1).redeliveryDelay(2000).maximumRedeliveryDelay(2000);
 
                 from("direct:in")
