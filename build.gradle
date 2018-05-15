@@ -35,3 +35,7 @@ dependencies {
 }
 
 mainClassName = 'my.test.Application'
+
+run{
+    standardInput = System.in
+}
